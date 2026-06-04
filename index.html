@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.I.G.A. - Sistema Integral de Gestion Academica</title>
+    <meta name="description" content="Organiza tu vida universitaria: materias, examenes, apuntes y horarios de consulta en un solo lugar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+
+    <!-- ========== LOGIN ========== -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="80">
+                            <stop offset="0%" stop-color="#1565c0"/>
+                            <stop offset="100%" stop-color="#4fc3f7"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="40" cy="40" r="36" stroke="url(#logoGrad)" stroke-width="3" fill="none" opacity="0.3"/>
+                    <circle cx="40" cy="40" r="28" stroke="url(#logoGrad)" stroke-width="2" fill="rgba(25,118,210,0.08)"/>
+                    <path d="M40 18 L58 28 L40 38 L22 28 Z" fill="url(#logoGrad)"/>
+                    <path d="M26 30 L26 44 C26 48 32 54 40 54 C48 54 54 48 54 44 L54 30" stroke="url(#logoGrad)" stroke-width="2.5" fill="none"/>
+                    <line x1="58" y1="28" x2="58" y2="48" stroke="url(#logoGrad)" stroke-width="2.5"/>
+                    <circle cx="58" cy="49" r="2" fill="#4fc3f7"/>
+                    <path d="M36 58 L40 64 L44 58" stroke="#4fc3f7" stroke-width="2" fill="none" opacity="0.6"/>
+                </svg>
+            </div>
+            <h1 class="login-title">S.I.G.A.</h1>
+            <p class="login-subtitle">Sistema Integral de Gestion Academica</p>
+            <form class="login-form" id="login-form">
+                <div class="input-group">
+                    <label for="login-email">Correo electronico</label>
+                    <input type="email" id="login-email" placeholder="tu@email.edu.ar" required autocomplete="email">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="material-symbols-outlined">login</span>
+                    Ingresar
+                </button>
+                <p class="login-error" id="login-error"></p>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">
+                    Demo: <strong style="color:var(--accent-light);cursor:pointer;" onclick="document.getElementById('login-email').value='alumno@utn.edu.ar'">alumno@utn.edu.ar</strong>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== MOBILE HEADER ========== -->
+    <div class="mobile-header" id="mobile-header">
+        <button class="hamburger" id="hamburger-btn">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+        <span class="mobile-logo">S.I.G.A.</span>
+        <span style="width:36px"></span>
+    </div>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ========== APP SHELL ========== -->
+    <div id="app-shell" class="app-shell hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">🎓</div>
+                <span class="sidebar-logo-text">S.I.G.A.</span>
+            </div>
+            <div class="sidebar-user" id="sidebar-user"></div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <button class="nav-item active" data-view="dashboard">
+                    <span class="material-symbols-outlined">dashboard</span> Dashboard
+                </button>
+                <button class="nav-item" data-view="plan">
+                    <span class="material-symbols-outlined">school</span> Plan de Carrera
+                </button>
+                <button class="nav-item" data-view="materias">
+                    <span class="material-symbols-outlined">menu_book</span> Mis Materias
+                </button>
+                <button class="nav-item" data-view="examenes">
+                    <span class="material-symbols-outlined">event</span> Examenes
+                </button>
+                <button class="nav-item" data-view="apuntes">
+                    <span class="material-symbols-outlined">description</span> Mis Apuntes
+                </button>
+                <button class="nav-item" data-view="profesores">
+                    <span class="material-symbols-outlined">groups</span> Profesores
+                </button>
+                <div class="nav-divider"></div>
+                <button class="nav-item nav-item-logout" id="btn-logout">
+                    <span class="material-symbols-outlined">logout</span> Cerrar Sesion
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content"></main>
+    </div>
+
+    <!-- ========== MODAL ========== -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div id="modal-content" class="modal-content"></div>
+    </div>
+
+    <!-- ========== TOASTS ========== -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
