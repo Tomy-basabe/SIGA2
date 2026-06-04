@@ -10,32 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
 
     <!-- ========== LOGIN ========== -->
     <div id="login-screen" class="login-screen">
         <div class="login-card">
-            <div class="login-logo">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="80">
-                            <stop offset="0%" stop-color="#1565c0"/>
-                            <stop offset="100%" stop-color="#4fc3f7"/>
-                        </linearGradient>
-                    </defs>
-                    <circle cx="40" cy="40" r="36" stroke="url(#logoGrad)" stroke-width="3" fill="none" opacity="0.3"/>
-                    <circle cx="40" cy="40" r="28" stroke="url(#logoGrad)" stroke-width="2" fill="rgba(25,118,210,0.08)"/>
-                    <path d="M40 18 L58 28 L40 38 L22 28 Z" fill="url(#logoGrad)"/>
-                    <path d="M26 30 L26 44 C26 48 32 54 40 54 C48 54 54 48 54 44 L54 30" stroke="url(#logoGrad)" stroke-width="2.5" fill="none"/>
-                    <line x1="58" y1="28" x2="58" y2="48" stroke="url(#logoGrad)" stroke-width="2.5"/>
-                    <circle cx="58" cy="49" r="2" fill="#4fc3f7"/>
-                    <path d="M36 58 L40 64 L44 58" stroke="#4fc3f7" stroke-width="2" fill="none" opacity="0.6"/>
-                </svg>
+            <div class="login-logo-container" style="background: #ffffff; padding: 16px; border-radius: var(--radius-lg); margin-bottom: 24px; display: inline-block; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+                <img src="logo.png" alt="S.I.G.A. Logo" style="width: 100%; max-width: 280px; height: auto; display: block;">
             </div>
-            <h1 class="login-title">S.I.G.A.</h1>
-            <p class="login-subtitle">Sistema Integral de Gestion Academica</p>
             <form class="login-form" id="login-form">
                 <div class="input-group">
                     <label for="login-email">Correo electronico</label>
@@ -67,9 +51,8 @@
     <div id="app-shell" class="app-shell hidden">
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-logo">
-                <div class="sidebar-logo-icon">🎓</div>
-                <span class="sidebar-logo-text">S.I.G.A.</span>
+            <div class="sidebar-logo" style="padding: 6px 12px; margin-bottom: 16px; background: #ffffff; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; height: 50px;">
+                <img src="logo.png" alt="S.I.G.A." style="max-height: 100%; max-width: 100%; object-fit: contain;">
             </div>
             <div class="sidebar-user" id="sidebar-user"></div>
             <nav class="sidebar-nav" id="sidebar-nav">
